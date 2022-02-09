@@ -42,18 +42,29 @@
     margin-top: 0; }
 
 .luxbar-header {
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-pack: justify;
+      justify-content: space-between;
+  -ms-flex-align: center;
+      align-items: center;
   height: 58px; }
 
 .luxbar-menu-left .luxbar-navigation,
 .luxbar-menu-left .luxbar-header {
-  justify-content: flex-start; }
+  -ms-flex-pack: start;
+      justify-content: flex-start; }
+
+.luxbar-menu-left .luxbar-circle-hamburger {
+  margin-left: 10px; }
 
 .luxbar-menu-right .luxbar-hamburger {
   margin-left: auto; }
+
+.luxbar-menu-right .luxbar-circle-hamburger {
+  margin-right: 10px; }
 
 .luxbar-brand {
   font-size: 1.6em;
@@ -65,8 +76,10 @@
   width: 100%; }
 
 .luxbar-navigation {
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -ms-flex-direction: column;
+      flex-direction: column;
   list-style: none;
   padding-left: 0;
   margin: 0; }
@@ -94,6 +107,23 @@
     margin-top: -8px; }
   .luxbar-hamburger span::after {
     margin-top: 8px; }
+
+.luxbar-circle-hamburger {
+  padding: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%; }
+  .luxbar-circle-hamburger span {
+    width: 22px;
+    margin: 17px 0 0 7px; }
+    .luxbar-circle-hamburger span::before {
+      width: 22px;
+      margin-left: 0;
+      margin-top: -6px; }
+    .luxbar-circle-hamburger span::after {
+      width: 22px;
+      margin-left: 0;
+      margin-top: 6px; }
 
 .luxbar-checkbox {
   display: none; }
@@ -137,23 +167,20 @@
 
 @media screen and (min-width: 768px) {
   .luxbar-navigation {
-    flex-flow: row;
-    justify-content: flex-end; }
-
+    -ms-flex-flow: row;
+        flex-flow: row;
+    -ms-flex-pack: end;
+        justify-content: flex-end; }
   .luxbar-hamburger {
     display: none; }
-
   .luxbar-checkbox:not(:checked) ~ .luxbar-menu {
     overflow: visible; }
   .luxbar-checkbox:checked ~ .luxbar-menu {
     height: 58px; }
-
   .luxbar-menu .luxbar-item {
     border-top: 0; }
-
   .luxbar-menu-right .luxbar-header {
     margin-right: auto; }
-
   .dropdown {
     height: 58px; }
     .dropdown:hover > ul {
@@ -167,14 +194,60 @@
         padding: 5px 10px; }
         .dropdown > ul .luxbar-item a {
           white-space: nowrap; } }
+
 .luxbar-checkbox:checked + .luxbar-menu .luxbar-hamburger-doublespin span::before {
   transform: rotate(225deg); }
+
 .luxbar-checkbox:checked + .luxbar-menu .luxbar-hamburger-doublespin span::after {
   transform: rotate(-225deg); }
+
 .luxbar-checkbox:checked + .luxbar-menu .luxbar-hamburger-spin span::before {
   transform: rotate(45deg); }
+
 .luxbar-checkbox:checked + .luxbar-menu .luxbar-hamburger-spin span::after {
   transform: rotate(-45deg); }
+
+.luxbar-menu-transparent-dark,
+.luxbar-menu-transparent-dark .dropdown ul {
+  color: #fff; }
+
+.luxbar-menu-transparent-dark .active,
+.luxbar-menu-transparent-dark .luxbar-item:hover {
+  background-color: rgba(66, 66, 66, 0.5); }
+
+.luxbar-menu-transparent-dark .luxbar-hamburger span,
+.luxbar-menu-transparent-dark .luxbar-hamburger span::before,
+.luxbar-menu-transparent-dark .luxbar-hamburger span::after {
+  background-color: #fff; }
+
+.luxbar-menu-transparent-dark .luxbar-circle-hamburger {
+  background-color: rgba(66, 66, 66, 0.5); }
+
+.luxbar-checkbox:checked + .luxbar-menu-transparent-dark,
+.luxbar-checkbox:checked + .luxbar-menu-transparent-dark .dropdown ul {
+  background-color: #212121; }
+
+.luxbar-menu-transparent-light,
+.luxbar-menu-transparent-light .dropdown ul {
+  color: #212121; }
+
+.luxbar-menu-transparent-light .active,
+.luxbar-menu-transparent-light .luxbar-item:hover {
+  background-color: rgba(224, 224, 224, 0.7); }
+
+.luxbar-menu-transparent-light .luxbar-hamburger {
+  background-color: rgba(224, 224, 224, 0.7); }
+  .luxbar-menu-transparent-light .luxbar-hamburger span,
+  .luxbar-menu-transparent-light .luxbar-hamburger span::before,
+  .luxbar-menu-transparent-light .luxbar-hamburger span::after {
+    background-color: #212121; }
+
+.luxbar-menu-transparent-light .luxbar-circle-hamburger {
+  background-color: rgba(224, 224, 224, 0.7); }
+
+.luxbar-checkbox:checked + .luxbar-menu-transparent-light,
+.luxbar-checkbox:checked + .luxbar-menu-transparent-light .dropdown ul {
+  background-color: #e0e0e0; }
 
 .luxbar-menu-dark,
 .luxbar-menu-dark .dropdown ul {
@@ -184,6 +257,7 @@
 .luxbar-menu-dark .active,
 .luxbar-menu-dark .luxbar-item:hover {
   background-color: #424242; }
+
 .luxbar-menu-dark .luxbar-hamburger span,
 .luxbar-menu-dark .luxbar-hamburger span::before,
 .luxbar-menu-dark .luxbar-hamburger span::after {
@@ -197,6 +271,7 @@
 .luxbar-menu-light .active,
 .luxbar-menu-light .luxbar-item:hover {
   background-color: #bdbdbd; }
+
 .luxbar-menu-light .luxbar-hamburger span,
 .luxbar-menu-light .luxbar-hamburger span::before,
 .luxbar-menu-light .luxbar-hamburger span::after {
@@ -210,6 +285,7 @@
 .luxbar-menu-material-red .active,
 .luxbar-menu-material-red .luxbar-item:hover {
   background-color: #c62828; }
+
 .luxbar-menu-material-red .luxbar-hamburger span,
 .luxbar-menu-material-red .luxbar-hamburger span::before,
 .luxbar-menu-material-red .luxbar-hamburger span::after {
@@ -223,6 +299,7 @@
 .luxbar-menu-material-indigo .active,
 .luxbar-menu-material-indigo .luxbar-item:hover {
   background-color: #283593; }
+
 .luxbar-menu-material-indigo .luxbar-hamburger span,
 .luxbar-menu-material-indigo .luxbar-hamburger span::before,
 .luxbar-menu-material-indigo .luxbar-hamburger span::after {
@@ -236,6 +313,7 @@
 .luxbar-menu-material-green .active,
 .luxbar-menu-material-green .luxbar-item:hover {
   background-color: #2e7d32; }
+
 .luxbar-menu-material-green .luxbar-hamburger span,
 .luxbar-menu-material-green .luxbar-hamburger span::before,
 .luxbar-menu-material-green .luxbar-hamburger span::after {
@@ -249,6 +327,7 @@
 .luxbar-menu-material-amber .active,
 .luxbar-menu-material-amber .luxbar-item:hover {
   background-color: #ff8f00; }
+
 .luxbar-menu-material-amber .luxbar-hamburger span,
 .luxbar-menu-material-amber .luxbar-hamburger span::before,
 .luxbar-menu-material-amber .luxbar-hamburger span::after {
@@ -262,6 +341,7 @@
 .luxbar-menu-material-brown .active,
 .luxbar-menu-material-brown .luxbar-item:hover {
   background-color: #4e342e; }
+
 .luxbar-menu-material-brown .luxbar-hamburger span,
 .luxbar-menu-material-brown .luxbar-hamburger span::before,
 .luxbar-menu-material-brown .luxbar-hamburger span::after {
@@ -275,6 +355,7 @@
 .luxbar-menu-material-bluegrey .active,
 .luxbar-menu-material-bluegrey .luxbar-item:hover {
   background-color: #37474f; }
+
 .luxbar-menu-material-bluegrey .luxbar-hamburger span,
 .luxbar-menu-material-bluegrey .luxbar-hamburger span::before,
 .luxbar-menu-material-bluegrey .luxbar-hamburger span::after {
@@ -288,9 +369,8 @@
 .luxbar-menu-material-cyan .active,
 .luxbar-menu-material-cyan .luxbar-item:hover {
   background-color: #00838f; }
+
 .luxbar-menu-material-cyan .luxbar-hamburger span,
 .luxbar-menu-material-cyan .luxbar-hamburger span::before,
 .luxbar-menu-material-cyan .luxbar-hamburger span::after {
   background-color: #fff; }
-
-/*# sourceMappingURL=luxbar.css.map */

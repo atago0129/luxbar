@@ -31,11 +31,17 @@
     .#{$luxbar-css-prefix}-header {
         justify-content: flex-start;
     }
+    .#{$luxbar-css-prefix}-circle-hamburger {
+        margin-left: 10px;
+    }
 }
 
 .#{$luxbar-css-prefix}-menu-right {
     .#{$luxbar-css-prefix}-hamburger {
         margin-left: auto;
+    }
+    .#{$luxbar-css-prefix}-circle-hamburger {
+        margin-right: 10px;
     }
 }
 
@@ -97,6 +103,27 @@
 
         &::after {
             margin-top: 8px;
+        }
+    }
+}
+
+.#{$luxbar-css-prefix}-circle-hamburger {
+    padding: 0;
+    width: $circle-hamburger-diameter;
+    height: $circle-hamburger-diameter;
+    border-radius: 50%;
+    span {
+        width: $circle-hamburger-span-width;
+        margin: $circle-hamburger-span-margin;
+        &::before {
+            width: $circle-hamburger-span-width;
+            margin-left: 0;
+            margin-top: -6px;
+        }
+        &::after {
+            width: $circle-hamburger-span-width;
+            margin-left: 0;
+            margin-top: 6px;
         }
     }
 }

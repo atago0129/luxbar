@@ -35,6 +35,14 @@ $material-brown-bg: #3e2723;
 $material-brown-hl: #4e342e;
 $material-brown-fg: #fff;
 
+$transparent-dark-bg: #212121;
+$transparent-dark-fg: #fff;
+$transparent-dark-hl: rgba(66, 66, 66, 0.5);
+
+$transparent-light-bg: #e0e0e0;
+$transparent-light-fg: #212121;
+$transparent-light-hl: rgba(224, 224, 224, 0.7);
+
 // ******* default dark *******
 .#{$luxbar-css-prefix}-menu-dark,
 .#{$luxbar-css-prefix}-menu-dark .dropdown ul {
@@ -229,6 +237,75 @@ $material-brown-fg: #fff;
         span::before,
         span::after {
             background-color: $material-cyan-fg;
+        }
+    }
+}
+
+// ******* default dark transparent *******
+.#{$luxbar-css-prefix}-menu-transparent-dark,
+.#{$luxbar-css-prefix}-menu-transparent-dark .dropdown ul {
+    color: $transparent-dark-fg;
+}
+
+.#{$luxbar-css-prefix}-menu-transparent-dark {
+    .active,
+    .#{$luxbar-css-prefix}-item:hover {
+        background-color: $transparent-dark-hl;
+    }
+
+    .#{$luxbar-css-prefix}-hamburger {
+        span,
+        span::before,
+        span::after {
+            background-color: $transparent-dark-fg;
+        }
+    }
+
+    .#{$luxbar-css-prefix}-circle-hamburger {
+        background-color: $transparent-dark-hl;
+    }
+}
+
+.#{$luxbar-css-prefix}-checkbox {
+    &:checked {
+        + .#{$luxbar-css-prefix}-menu-transparent-dark,
+        + .#{$luxbar-css-prefix}-menu-transparent-dark .dropdown ul {
+            background-color: $transparent-dark-bg;
+        }
+    }
+}
+
+// ******* default light transparent *******
+.#{$luxbar-css-prefix}-menu-transparent-light,
+.#{$luxbar-css-prefix}-menu-transparent-light .dropdown ul {
+    color: $transparent-light-fg;
+}
+
+.#{$luxbar-css-prefix}-menu-transparent-light {
+    .active,
+    .#{$luxbar-css-prefix}-item:hover {
+        background-color: $transparent-light-hl;
+    }
+
+    .#{$luxbar-css-prefix}-hamburger {
+        background-color: $transparent-light-hl;
+        span,
+        span::before,
+        span::after {
+            background-color: $transparent-light-fg;
+        }
+    }
+
+    .#{$luxbar-css-prefix}-circle-hamburger {
+        background-color: $transparent-light-hl;
+    }
+}
+
+.#{$luxbar-css-prefix}-checkbox {
+    &:checked {
+        + .#{$luxbar-css-prefix}-menu-transparent-light,
+        + .#{$luxbar-css-prefix}-menu-transparent-light .dropdown ul {
+            background-color: $transparent-light-bg;
         }
     }
 }
